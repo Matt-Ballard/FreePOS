@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free POS</title>
+    <link rel="stylesheet" href="POS.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <nav>
+      <h1>Free POS</h1>
+      <button class="cashButton" id="help" onclick="toggleHelp()">HELP</button>
+      <button class="cashButton" id="demo" onclick="demoMode()">Demo</button>
+    </nav>
+
+    <div id="helpText" class="hidden">
+
+      <h4>About This Site:</h4>
+      <p>This web app aims to demonstrate the basic functionality of a 'till' (or 'cash register') - this is known as 'POS' (Point Of Sale).</p>
+      <h4>How To Use The App:</h4>
+      <p>You can add items to the POS in the section at the bottom of the page. Items added will appear in your 'Shop' screen as buttons.</p>
+      <p>Click on an item button to add that item to the basket. The basket represents the current transaction.</p>
+      <p>The display at the top shows the total bill for the current basket and the green button nearby finalizes the sale of the current basket.</p>
+      <p>The 'Quick Sale' payment method assumes that the exact payment has been tendered, so will not provide a prompt for change due.</p>
+      <p>The 'Basket View' button toggles a more detailed display, including info about the current basket & any change due.</p>
+      <p>The 'Payment View' button toggles futher payment options, including cash notes & a way to 'key-in' exact amounts.</p>
+      <p>The payment options also include a button to cancel the current sale, and a 'Sales Report' button which provides a summary of all trade from the session (an 'X report')</p>
+      <p>Refreshing the browser causes all the sales & product data from the current session to be lost, effectively resetting the POS to default.</p>
+      <p>Instead of manually inputting each item, there is an option to import items automatically from a text file.</p>
+      <p>To do this, simply provide a text file containing item data in the following 'comma-sperated' format: name,price,name,price... etc. An example of a properly formatted file might look like the line below:</p>
+      <p>Coffee,2.25,Cake,1.8,Mints,.90,Sandwich,4,Juice,1.05</p>
+      <p>The file should have the file extension.txt (use an app like notepad or save/rename a text file with the '.txt' suffix.</p>
+
+    </div>
+
+    <div class="top">
+
+      <p id="total">TOTAL: $00.00</p>
+      <p class="hidden" id="sale">SALE COMPLETE!</p>
+
+      <div id="cash">
+        <button id="quick" class="cashButton" onclick="finishSale()">Quick Sale</button>
+        <button id="basket" class="cashButton" onclick="toggleBasket()">Basket View</button>
+        <button id="pay" class="cashButton" onclick="togglePayment()">Payment View</button>
+      </div>
+
+    </div>
+
+    <div id="basketDisplay" class="hidden">
+      <ul>
+        <p id="change"></p>
+        <h4>CURRENT BASKET:</h4>  
+        <li id="billTemplate" class="hidden"></li>
+      </ul>
+    </div>
+
+    <div id="payment" class="hidden">
+      <button class="cashButton" onclick="finishSale(50)">$50</button>
+      <button class="cashButton" onclick="finishSale(20)">$20</button>
+      <button class="cashButton" onclick="finishSale(10)">$10</button>
+      <button class="cashButton" onclick="finishSale(5)">$5</button>
+      <button id="keyIn" class="cashButton" onclick="keyInCash()">Key-In Cash</button>
+      <button id="discount" class="cashButton" onclick="discount()">Discount</button>
+      <button id="cancel" class="cashButton" onclick="cancelSale()">Cancel Sale</button>
+      <button id="close" class="cashButton" onclick="salesReport()">Sales Report</button>
+    </div>
+
+
+    <div id="shop">
+      <button class="hidden" id="itemTemplate" onclick="addToBasket()"></button>
+    </div>
+
+
+    <br>
+    <h3>Add new item:</h3>
+
+
+    <div id="setUp" class="">
+
+      <div class="setUpItem">
+        <p>Item Name:</p>
+        <input id="Name" type="text" placeholder="e.g. 'Regular Coffee'">
+      </div>
+      
+      <div class="setUpItem">
+        <p>Sales Price:</p>
+        <input id="Price" type="text" placeholder="'1.99' = $1.99, '10' = $10.00">
+      </div>
+      <button onclick="createItem()" class="setUpItem cashButton">Save & Add to Shop</button>
+    </div>
+
+    <div class="setUpItem">
+      <h4>Import Items from File:</h4>
+      <input id="upload" type="file" onchange="importItems()">
+    </div>
+
+    <script src="http://cdn.jsdelivr.net/g/filesaver.js"></script>
+    <script src="POS.js"></script>
+
+  </body>
+
+</html>

@@ -1,0 +1,174 @@
+body {
+    font-family: "Roboto", "Arial Unicode MS";
+    background-color: white;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 35px;
+}
+
+#help, #demo {
+    flex-grow: 0;
+    color: black;
+    border: solid 2px slategray;
+}
+
+button {
+    width: 10%;
+    height: 5rem;
+    margin: 4px;
+    border-radius: 4px;
+    border: 1px solid gray;
+    transition-duration: 0.1s;
+    box-shadow: 2px 2px rgb(138, 138, 138);
+}
+
+button:hover {
+    background-color: rgb(255, 255, 100);
+    font-weight: bold;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+button:active {
+    background-image: radial-gradient(white 75%, lightgrey);
+    box-shadow: 0 5px #666;
+    transform: translateY(2px);
+}
+
+.hidden {
+    display: none;
+}
+
+.top {
+    display: flex;
+    border: 1px slategray;
+    border-radius: 2px;
+    align-items: center;
+    background-color: lightgray;
+    margin: 0px 0px 10px 0px;
+    padding: 2px;
+}
+
+#cash {
+    display: flex;
+}
+
+.cashButton {
+    flex-grow: 1;
+    font-size: large;
+    font-weight: bold;
+}
+
+#total {
+    display: flex;
+    justify-content: center;
+    min-height: 50px;
+    flex-direction: column;
+    border: 3px solid grey;
+    border-radius: 2px;
+    background-color: black;
+    font-family: 'Chakra Petch', sans-serif;
+    color: lime;
+    margin: 0 5px 0px 5px;
+    flex-grow: 3;
+    list-style-type: none;
+    font-size: xx-large;
+    padding: 0px 0px 0px 6px;
+}
+
+#sale {
+    min-height: 50px;
+    flex-direction: column;
+    border: 3px solid grey;
+    border-radius: 2px;
+    background-color: black;
+    font-family: 'Chakra Petch', sans-serif;
+    color: lime;
+    margin: 0 5px 10px 5px;
+    flex-grow: 3;
+    list-style-type: none;
+    font-size: xx-large;
+    padding: 0px 0px 0px 10px;
+}
+
+#basketDisplay {
+    padding: 20px;
+    background-color: black;
+    font-family: 'Chakra Petch', sans-serif;
+    color: white;
+    margin-bottom: 15px;
+    border-radius: 2px;
+    padding: 3px 10px 3px 0px;
+    border: 3px solid grey;
+}
+
+#payment {
+    display: none;
+    border: 1px slategray;
+    border-radius: 2px;
+    align-items: center;
+    background-color: lightgray;
+    margin: 0px 0px 15px 0px;
+    padding: 10px;
+}
+
+#close {
+    color: white;
+    background-color: black;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+#discount {
+    padding: 0px;
+}
+
+#quick {
+    background-color: lime;
+}
+
+#cancel {
+    color: white;
+    background-color: rgb(220, 0, 0);
+}
+
+li {
+    list-style:square;
+}
+
+li #total {
+    list-style: none;
+}
+
+#shop {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid slategray;
+    border-radius: 2px;
+    align-items: center;
+    justify-content: center;
+    min-height: 70px;
+    padding: 5px;
+}
+
+#setUp {
+    display: flex;
+    justify-content: center;
+    border: 1px slategray;
+    border-radius: 2px;
+    background-color: lightgray;
+    margin: 15px 0px 15px 0px;
+    padding: 2px;
+}
+
+.setUpItem {
+    flex-grow: 1;
+    margin: 5px;
+}
